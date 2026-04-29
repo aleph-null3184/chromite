@@ -1,0 +1,9 @@
+# binaries
+chromite
+*.o
+
+# editor backups
+*~
+
+# system files
+.DS_Store
