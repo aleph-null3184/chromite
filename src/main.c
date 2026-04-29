@@ -1,8 +1,6 @@
 #include <ncurses.h>
 #include <stdbool.h>
 
-bool running = true;
-
 void init_terminal(void) {
   initscr();
   cbreak();
@@ -13,11 +11,14 @@ void init_terminal(void) {
 int main(void) {
   init_terminal();
 
+  bool running = true; 
+
   while (running) {
     int inpCh = getch();
     if (inpCh == 'q') {
       running = false; 
     } else {
+      clear();
       printw("Wrong command!");
       refresh();
     }
