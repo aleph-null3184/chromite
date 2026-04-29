@@ -14,11 +14,12 @@ int main(void) {
   init_terminal();
 
   while (running) {
-    char inpCh = getch();
+    int inpCh = getch();
     if (inpCh == 'q') {
       running = false; 
     } else {
       printw("Wrong command!");
+      refresh();
     }
   }
 
