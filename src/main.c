@@ -18,16 +18,15 @@ int main(void) {
   while (running) {
     int inpCh = getch(); 
     if (inpCh == 'q') { 
-      running = false;  
+      running = false;
     }
     clear();
     printw("Chromite - Text Editor");
     printw("Press q to exit");
     refresh();
   }
-
   clear(); 
-  endwin(); 
+  endwin();
 
   return 0;
 }
