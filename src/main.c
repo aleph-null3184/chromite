@@ -1,5 +1,8 @@
 #include <ncurses.h>
 #include <stdbool.h>
+#include "state.h"
+
+EditorState editor = {0};
 
 // this whole function initializes the terminal
 void init_terminal(void) {
@@ -19,10 +22,15 @@ int main(void) {
     int inpCh = getch(); 
     if (inpCh == 'q') { 
       running = false;
+      continue;
     }
+
+    if (inpCh >= 32 && inpCh <= 126) {
+      insert_char(&editor, inpCh);
+    }
+    
     clear();
-    printw("Chromite - Text Editor");
-    printw("Press q to exit");
+    printw("%s", editor.buffer);
     refresh();
   }
   clear(); 
