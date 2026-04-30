@@ -15,9 +15,7 @@ int main(void) {
 
   while (running) {
     clear();
-    printw("Chromite Text Editor - v0.0.0.0.1 (this versioning is a joke)\n");
-    printw("Press q to exit");
-    refresh();
+    printw("Chromite Text Editor");
 
     int inpCh = getch();
     if (inpCh == 'q') {
