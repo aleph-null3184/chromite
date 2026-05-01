@@ -2,11 +2,7 @@
 #include <stdbool.h>
 #include <locale.h>
 #include "state.h"
-
-#define SPACE 32
-#define TILDE 126
-#define BACKSPACE 127
-#define BACKSPACE_1 8
+#include "keys.h"
 
 EditorState editor = {0};
 
@@ -34,6 +30,8 @@ int main(void) {
       remove_last_char(&editor);
     } else if (inpCh >= SPACE && inpCh <= TILDE) {
       insert_char(&editor, inpCh);
+    } else if (inpCh == ENTER) {
+      insert_char(&editor, '\n');
     }
     
     clear();
