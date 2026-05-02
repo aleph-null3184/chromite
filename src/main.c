@@ -27,11 +27,15 @@ int main(void) {
       running = false;
       continue;
     } else if (inpCh == BACKSPACE || inpCh == BACKSPACE_1 || inpCh == KEY_BACKSPACE) {
-      remove_last_char(&editor);
+      remove_char_before_cursor(&editor);
     } else if (inpCh >= SPACE && inpCh <= TILDE) {
-      insert_char(&editor, inpCh);
+      insert_char_at_cursor(&editor, inpCh);
     } else if (inpCh == ENTER) {
       insert_char(&editor, '\n');
+    } else if (inpCh == KEY_LEFT) {
+      move_cursor_left(&editor);
+    } else if (inpCh == KEY_RIGHT) {
+      move_cursor_right(&editor);
     }
     
     clear();
